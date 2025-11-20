@@ -20,6 +20,14 @@
       "require": "./dist/index.cjs"
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nawing/AYA-Merchant-API.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nawing/AYA-Merchant-API/issues"
+  },
+  "homepage": "https://github.com/nawing/AYA-Merchant-API#readme",
   "scripts": {
     "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig.cjs.json",
     "clean": "rm -rf dist",
