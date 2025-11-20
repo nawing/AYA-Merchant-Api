@@ -1,0 +1,38 @@
+{
+  "name": "aya-merchant-api",
+  "version": "1.0.0",
+  "description": "MMQR, Master, Visa, JCB, MPU",
+  "type": "module",
+  "keywords": [
+    "MMQR",
+    "Master",
+    "Visa",
+    "JCB",
+    "MPU"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig.cjs.json",
+    "clean": "rm -rf dist",
+    "dev": "tsc --watch"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "typescript": "^5.3.3"
+  },
+  "author": "Naw Ing",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "crypto": "^1.0.1"
+  }
+}
