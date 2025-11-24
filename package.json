@@ -9,14 +9,15 @@
     "JCB",
     "MPU"
   ],
+  "type": "module",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/esm/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
       "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js"
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/esm/index.d.ts"
     }
   },
   "repository": {
@@ -28,7 +29,7 @@
   },
   "homepage": "https://github.com/nawing/AYA-Merchant-API#readme",
   "scripts": {
-    "build": "rm -rf dist && tsc --project tsconfig.json && tsc --project tsconfig.cjs.json",
+    "build": "npm run clean && tsc && tsc -p tsconfig.cjs.json",
     "clean": "rm -rf dist",
     "dev": "tsc --watch"
   },

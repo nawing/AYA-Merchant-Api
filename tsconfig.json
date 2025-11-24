@@ -1,17 +1,15 @@
-// tsconfig.json
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "esModuleInterop": true,
-    "strict": true,
-    "skipLibCheck": true,
+    "module": "ES2020",
     "declaration": true,
-    "outDir": "./dist/esm",
-    "rootDir": "./src"
+    "outDir": "dist/esm",
+    "strict": false,
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
   "include": [
-    "src/**/*"
+    "src"
   ]
 }

@@ -48,7 +48,6 @@ export interface PaymentRequest {
   merchOrderId: string;
   amount: string;
   appKey: string;
-  timestamp: number;
   userRef1: string;
   userRef2: string;
   userRef3: string;
@@ -219,7 +218,7 @@ class AYAMerchantClass {
         merchOrderId: payload.merchOrderId,
         amount: payload.amount,
         appKey: this.#appKey,
-        timestamp: payload.timestamp,
+        timestamp: timestamp,
         userRef1: payload.userRef1,
         userRef2: payload.userRef2,
         userRef3: payload.userRef3,
@@ -283,7 +282,7 @@ class AYAMerchantClass {
         merchOrderId: payload.merchOrderId,
         amount: payload.amount,
         appKey: this.#appKey,
-        timestamp: payload.timestamp,
+        timestamp: timestamp,
         userRef1: payload.userRef1,
         userRef2: payload.userRef2,
         userRef3: payload.userRef3,

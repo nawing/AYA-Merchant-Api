@@ -1,4 +1,3 @@
-"use strict";
 var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
     if (kind === "m") throw new TypeError("Private method is not writable");
     if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
@@ -10,14 +9,9 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 var _AYAMerchantClass_baseUrl, _AYAMerchantClass_appKey, _AYAMerchantClass_secretKey;
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AYAMerchantSDK = AYAMerchantSDK;
-const axios_1 = __importDefault(require("axios"));
-const crypto_1 = __importDefault(require("crypto"));
+import axios from 'axios';
+import crypto from 'crypto';
 /**
  * @AYAMerchantSDK
  * @AYAMerchantSDK
@@ -25,7 +19,7 @@ const crypto_1 = __importDefault(require("crypto"));
  * @param {SDKOptions} options
  * @returns {AYAMerchantClass} A status message string.
  */
-function AYAMerchantSDK(options) {
+export function AYAMerchantSDK(options) {
     return new AYAMerchantClass({
         baseUrl: options.baseUrl,
         appKey: options.appKey,
@@ -64,7 +58,7 @@ class AYAMerchantClass {
                 timestamp: timestamp,
                 checkSum: signature
             };
-            const response = await axios_1.default.post(`${__classPrivateFieldGet(this, _AYAMerchantClass_baseUrl, "f")}/v1/payment/services`, body, config);
+            const response = await axios.post(`${__classPrivateFieldGet(this, _AYAMerchantClass_baseUrl, "f")}/v1/payment/services`, body, config);
             return response.data;
         }
         catch (error) {
@@ -102,7 +96,7 @@ class AYAMerchantClass {
                 merchOrderId: payload.merchOrderId,
                 amount: payload.amount,
                 appKey: __classPrivateFieldGet(this, _AYAMerchantClass_appKey, "f"),
-                timestamp: payload.timestamp,
+                timestamp: timestamp,
                 userRef1: payload.userRef1,
                 userRef2: payload.userRef2,
                 userRef3: payload.userRef3,
@@ -115,7 +109,7 @@ class AYAMerchantClass {
                 overrideFrontendRedirectUrl: payload.overrideFrontendRedirectUrl,
                 checkSum: signature
             };
-            const response = await axios_1.default.post(`${__classPrivateFieldGet(this, _AYAMerchantClass_baseUrl, "f")}/v1/payment/request`, body, config);
+            const response = await axios.post(`${__classPrivateFieldGet(this, _AYAMerchantClass_baseUrl, "f")}/v1/payment/request`, body, config);
             const extracted = this.extractDataByValuePattern(response.data);
             return {
                 success: true,
@@ -153,7 +147,7 @@ class AYAMerchantClass {
                 merchOrderId: payload.merchOrderId,
                 amount: payload.amount,
                 appKey: __classPrivateFieldGet(this, _AYAMerchantClass_appKey, "f"),
-                timestamp: payload.timestamp,
+                timestamp: timestamp,
                 userRef1: payload.userRef1,
                 userRef2: payload.userRef2,
                 userRef3: payload.userRef3,
@@ -194,7 +188,7 @@ class AYAMerchantClass {
                 timestamp: timestamp,
                 checkSum: signature
             };
-            const response = await axios_1.default.post(`${__classPrivateFieldGet(this, _AYAMerchantClass_baseUrl, "f")}/v1/payment/enquiry`, body, config);
+            const response = await axios.post(`${__classPrivateFieldGet(this, _AYAMerchantClass_baseUrl, "f")}/v1/payment/enquiry`, body, config);
             const enquiryResponse = response.data;
             const jsonString = Buffer.from(enquiryResponse.data.payload, 'base64').toString('utf-8');
             const jsonObject = JSON.parse(jsonString);
@@ -227,7 +221,7 @@ class AYAMerchantClass {
      */
     sumCheckLoadMethods(nonce) {
         const stringToSign = `${__classPrivateFieldGet(this, _AYAMerchantClass_appKey, "f")}:${__classPrivateFieldGet(this, _AYAMerchantClass_secretKey, "f")}:${nonce}`;
-        return crypto_1.default.createHmac('sha256', __classPrivateFieldGet(this, _AYAMerchantClass_secretKey, "f"))
+        return crypto.createHmac('sha256', __classPrivateFieldGet(this, _AYAMerchantClass_secretKey, "f"))
             .update(stringToSign)
             .digest('hex');
     }
@@ -266,7 +260,7 @@ class AYAMerchantClass {
             method,
             overrideFrontendRedirectUrl
         ].join(':');
-        return crypto_1.default.createHmac('sha256', __classPrivateFieldGet(this, _AYAMerchantClass_secretKey, "f"))
+        return crypto.createHmac('sha256', __classPrivateFieldGet(this, _AYAMerchantClass_secretKey, "f"))
             .update(stringToSign)
             .digest('hex');
     }
@@ -278,7 +272,7 @@ class AYAMerchantClass {
      */
     sumCheckEnquiry(merchOrderId, nonce) {
         const stringToSign = `${merchOrderId}:${nonce}:${__classPrivateFieldGet(this, _AYAMerchantClass_appKey, "f")}`;
-        return crypto_1.default.createHmac('sha256', __classPrivateFieldGet(this, _AYAMerchantClass_secretKey, "f"))
+        return crypto.createHmac('sha256', __classPrivateFieldGet(this, _AYAMerchantClass_secretKey, "f"))
             .update(stringToSign)
             .digest('hex');
     }
@@ -327,7 +321,7 @@ class AYAMerchantClass {
             description,
             dateTime
         ].join(':');
-        return crypto_1.default.createHmac('sha256', __classPrivateFieldGet(this, _AYAMerchantClass_secretKey, "f"))
+        return crypto.createHmac('sha256', __classPrivateFieldGet(this, _AYAMerchantClass_secretKey, "f"))
             .update(stringToSign)
             .digest('hex');
     }
