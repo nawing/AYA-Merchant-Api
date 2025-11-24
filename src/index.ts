@@ -47,7 +47,6 @@ export interface EnquiryDecodedResponse {
 export interface PaymentRequest {
   merchOrderId: string;
   amount: string;
-  appKey: string;
   userRef1: string;
   userRef2: string;
   userRef3: string;
@@ -58,7 +57,8 @@ export interface PaymentRequest {
   channel: string;
   method: string;
   overrideFrontendRedirectUrl: string;
-  checkSum: string;
+  appKey?: string;
+  checkSum?: string;
 }
 export interface PaymentResponse {
   success: boolean;
