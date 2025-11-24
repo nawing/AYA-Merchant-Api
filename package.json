@@ -1,6 +1,6 @@
 {
   "name": "aya-merchant-api",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "MMQR, Master, Visa, JCB, MPU",
   "keywords": [
     "MMQR",
@@ -9,7 +9,6 @@
     "JCB",
     "MPU"
   ],
-  "type": "module",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
