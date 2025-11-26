@@ -1,4 +1,4 @@
-# 📘 AYA Pay Merchant API Integration Documentation
+# 📘 AYA Portal Merchant API Integration Documentation (AGP)
 
 A robust, dual-module (ESM and CJS) TypeScript SDK for interacting with the AYA Payment Merchant services. It provides methods for payment request, enquiry, service list retrieval, and callback verification.
 
