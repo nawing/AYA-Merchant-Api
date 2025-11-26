@@ -21,12 +21,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nawing/AYA-Merchant-API.git"
+    "url": "git+https://github.com/nawing/AYA-Portal-Merchant-Api.git"
   },
   "bugs": {
-    "url": "https://github.com/nawing/AYA-Merchant-API/issues"
+    "url": "https://github.com/nawing/AYA-Portal-Merchant-Api/issues"
   },
-  "homepage": "https://github.com/nawing/AYA-Merchant-API#readme",
+  "homepage": "https://github.com/nawing/AYA-Portal-Merchant-Api#readme",
   "scripts": {
     "build": "npm run clean && tsc && tsc -p tsconfig.cjs.json",
     "clean": "rm -rf dist",
